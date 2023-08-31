@@ -1,0 +1,12 @@
+#!/bin/bash
+for html_file in *.html; do
+    if [ -f "../$html_file" ]; then
+        if [ "$html_file" -nt "../$html_file" ]; then
+            cp "$html_file" "../$html_file"
+            echo "Copying $html_file to the parent directory."
+        fi
+    else
+        cp "$html_file" "../$html_file"
+        echo "Copying $html_file to the parent directory."
+    fi
+done
